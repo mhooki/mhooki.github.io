@@ -44,64 +44,88 @@ function darkModeToggle() {
         document.getElementById('sunImage').style.marginTop = '0';
         document.getElementById('dmTooltip').innerHTML = 'LIGHT MODE';
     }
+
+    updateActivePage();
 }
 
-
 /*
- *  sidebar active page labels
+ *  page label handling
  */
 
-document.addEventListener('scroll', function () {
+const pageTitles = [
+    "WELCOME",
+    "ABOUT ME",
+    "ARTICLE",
+    "REFLECTION",
+    "PRELIM",
+    "MIDTERM",
+    "FINALS"
+];
 
-    var h = document.documentElement,
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight';
-
-    var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-
+function resetPageLabels() {
     var pageLabel = document.getElementsByClassName("pageLabel");
 
-    var activeColor = pageIsDark
-        ? 'rgb(255, 140, 200)'
-        : 'rgb(255, 105, 180)';
-
-    var inactiveColor = pageIsDark
-        ? 'rgb(105, 105, 125)'
-        : 'rgb(120, 120, 140)';
-
     for (let i = 0; i < pageLabel.length; i++) {
-        pageLabel[i].style.color = inactiveColor;
+        if (pageIsDark == true) {
+            pageLabel[i].style.color = 'rgb(255, 170, 210)';
+        } else {
+            pageLabel[i].style.color = 'rgb(255, 105, 180)';
+        }
 
-    } else if (percent <= 30) {
-        pageLabel[1].style.color = activeColor;
+        pageLabel[i].innerHTML = '// ' + pageTitles[i];
+    }
+}
 
-    } else if (percent <= 45) {
-        pageLabel[2].style.color = activeColor;
+function highlightLabel(index) {
+    var pageLabel = document.getElementsByClassName("pageLabel");
 
-    } else if (percent <= 60) {
-        pageLabel[3].style.color = activeColor;
+    resetPageLabels();
 
-    } else if (percent <= 80) {
-        pageLabel[4].style.color = activeColor;
-
+    if (pageIsDark == true) {
+        pageLabel[index].style.color = 'rgb(255, 200, 230)';
     } else {
-        pageLabel[5].style.color = activeColor;
+        pageLabel[index].style.color = 'rgb(255, 20, 147)';
     }
-     } else if (percent <= 30) {
-        pageLabel[1].style.color = activeColor;
 
-    } else if (percent <= 45) {
-        pageLabel[2].style.color = activeColor;
-    }
-});
+    pageLabel[index].innerHTML = '· // ' + pageTitles[index];
+}
 
+function updateActivePage() {
+    var scrollPosition = window.scrollY;
+    var windowHeight = window.innerHeight;
+
+    var sections = [
+        document.getElementById('page1'),
+        document.getElementById('page2'),
+        document.getElementById('page3'),
+        document.getElementById('page4'),
+        document.getElementById('page5'),
+        document.getElementById('page6'),
+        document.getElementById('page7')
+    ];
+
+    let activeIndex = 0;
+
+    sections.forEach((section, index) => {
+        if (section) {
+            const top = section.offsetTop - (windowHeight / 2);
+
+            if (scrollPosition >= top) {
+                activeIndex = index;
+            }
+        }
+    });
+
+    highlightLabel(activeIndex);
+}
 
 /*
- *  page reveal animation
+ *  scroll animations
  */
 
 document.addEventListener('scroll', function () {
+
+    updateActivePage();
 
     var h = document.documentElement,
         b = document.body,
@@ -109,21 +133,27 @@ document.addEventListener('scroll', function () {
         sh = 'scrollHeight';
 
     var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+    var adjPercent = percent * 8 - 200;
 
-    var cards = document.getElementsByClassName('subContainer');
+    document.getElementById('sidebarContainer').style.marginBottom = adjPercent + 'px';
 
-    for (let i = 0; i < cards.length; i++) {
+    var image1 = document.getElementById('image1');
 
-        if (percent > 10) {
-            cards[i].style.opacity = 1;
-            cards[i].style.transform = 'translateY(0)';
+    if (image1) {
+        if (percent >= 5 && percent <= 30) {
+            image1.style.opacity = 1;
+            image1.style.bottom = 0;
+        } else if (percent < 5) {
+            image1.style.opacity = 0;
+            image1.style.bottom = '-5vh';
         } else {
-            cards[i].style.opacity = 0;
-            cards[i].style.transform = 'translateY(20px)';
+            image1.style.opacity = 0;
+            image1.style.bottom = '5vh';
         }
     }
-});
 
+    console.log('scroll percent: ' + percent);
+});
 
 /*
  *  mobile navbar
@@ -132,37 +162,27 @@ document.addEventListener('scroll', function () {
 var sidebarVisible = false;
 var sidebar = document.getElementById('sidebar');
 var close = document.getElementById('close');
-
 var desktopWidth = window.matchMedia("(min-width: 601px)");
 
 desktopWidth.addEventListener('change', function () {
-
     if (desktopWidth.matches) {
-
         sidebarVisible = false;
         sidebar.style.opacity = 1;
-
     } else {
-
         sidebar.style.opacity = 0;
     }
 });
 
 function sidebarToggle() {
-
     if (desktopWidth.matches == false) {
-
         if (sidebarVisible == false) {
-
             sidebarVisible = true;
 
             sidebar.style.opacity = 1;
             sidebar.style.zIndex = 1;
 
             close.style.marginTop = 0;
-
         } else {
-
             sidebarVisible = false;
 
             sidebar.style.opacity = 0;
@@ -173,22 +193,10 @@ function sidebarToggle() {
     }
 }
 
-
 /*
- *  smooth hover glow for sub containers
+ *  initialize labels
  */
 
-var subContainers = document.querySelectorAll('.subContainer');
-
-subContainers.forEach(function(card) {
-
-    card.addEventListener('mouseenter', function() {
-
-        card.style.transform = 'translateY(-5px)';
-    });
-
-    card.addEventListener('mouseleave', function() {
-
-        card.style.transform = 'translateY(0)';
-    });
-});
+window.onload = function () {
+    updateActivePage();
+};
