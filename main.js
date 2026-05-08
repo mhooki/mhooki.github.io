@@ -200,33 +200,3 @@ function sidebarToggle() {
 window.onload = function () {
     updateActivePage();
 };
-/* =========================
-   DINO RANDOM JUMP
-========================= */
-
-const dino = document.getElementById('dino');
-
-function dinoJump() {
-
-    dino.animate(
-        [
-            { transform: 'translateY(0px)' },
-            { transform: 'translateY(-60px)' },
-            { transform: 'translateY(0px)' }
-        ],
-        {
-            duration: 700,
-            easing: 'ease-out'
-        }
-    );
-}
-
-setInterval(() => {
-
-    const randomChance = Math.random();
-
-    if (randomChance > 0.6) {
-        dinoJump();
-    }
-
-}, 3000);
