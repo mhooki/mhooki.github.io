@@ -3,30 +3,35 @@ html, body {
     color: var(--mainFG);
 }
 
-a, .pageLabel, .credits, #dmTooltip, .subtitle {
+a,
+.pageLabel,
+.subtitle,
+p {
     color: var(--subFG);
 }
 
-#funstuff:hover #dmTooltip, a:hover, #slashes {
+a:hover,
+.pageLabel:hover {
     color: var(--mainAccent);
 }
 
-@keyframes blink {
-    0%, 100% {
-        border-color: transparent;
-    }
+.card {
+    background: white;
+    color: var(--mainFG);
+}
 
-    50% {
-        border-color: var(--mainAccent);
-    }
+#sidebar {
+    background-color: rgba(255, 240, 245, 0.92);
+}
+
+h1 {
+    color: var(--mainAccent);
 }
 
 @media only screen and (max-width: 600px) {
-    #mobileNavBar {
-        background: var(--mainBG);
-    }
 
     #sidebar {
-        background-color: rgba(225, 225, 235, 0.9);
+        background-color: rgba(255, 240, 245, 0.95);
     }
+
 }
