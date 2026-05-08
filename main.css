@@ -494,7 +494,9 @@ a:hover,
         text-decoration: none;
     }
 }
-/* =========================
+
+#dinoFooter {
+    position: fixed;
     bottom: 0;
     left: 0;
 
