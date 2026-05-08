@@ -72,10 +72,6 @@ document.addEventListener('scroll', function () {
 
     for (let i = 0; i < pageLabel.length; i++) {
         pageLabel[i].style.color = inactiveColor;
-    }
-
-    if (percent <= 15) {
-        pageLabel[0].style.color = activeColor;
 
     } else if (percent <= 30) {
         pageLabel[1].style.color = activeColor;
@@ -91,6 +87,12 @@ document.addEventListener('scroll', function () {
 
     } else {
         pageLabel[5].style.color = activeColor;
+    }
+     } else if (percent <= 30) {
+        pageLabel[1].style.color = activeColor;
+
+    } else if (percent <= 45) {
+        pageLabel[2].style.color = activeColor;
     }
 });
 
