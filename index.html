@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Portfolio</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dark.css">
+    <link rel="stylesheet" href="light.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- MOBILE NAV -->
+
+    <div id="mobileNavBar" onclick="sidebarToggle()">
+
+        <div id="menu">
+
+            <img id="close" src="./assets/close.svg" alt="close">
+            <img id="burger" src="./assets/hamburger.svg" alt="menu">
+
+        </div>
+
+    </div>
+
+
+    <!-- SIDEBAR -->
+
+    <div id="sidebar">
+
+        <div id="sidebarContainer">
+
+            <a href="#page1" onclick="sidebarToggle()">
+                <h6 class="pageLabel"> // ARTICLE </h6>
+            </a>
+
+            <img class="separator" src="./assets/verticalLine.svg" alt="|">
+
+            <a href="#page2" onclick="sidebarToggle()">
+                <h6 class="pageLabel"> // ABOUT ME </h6>
+            </a>
+
+            <img class="separator" src="./assets/verticalLine.svg" alt="|">
+
+            <a href="#page3" onclick="sidebarToggle()">
+                <h6 class="pageLabel"> // REFLECTION </h6>
+            </a>
+
+            <img class="separator" src="./assets/verticalLine.svg" alt="|">
+
+            <a href="#page4" onclick="sidebarToggle()">
+                <h6 class="pageLabel"> // PRELIM </h6>
+            </a>
+
+            <img class="separator" src="./assets/verticalLine.svg" alt="|">
+
+            <a href="#page5" onclick="sidebarToggle()">
+                <h6 class="pageLabel"> // MIDTERM </h6>
+            </a>
+
+            <img class="separator" src="./assets/verticalLine.svg" alt="|">
+
+            <a href="#page6" onclick="sidebarToggle()">
+                <h6 class="pageLabel"> // FINALS </h6>
+            </a>
+
+        </div>
+
+
+        <!-- DARK MODE -->
+
+        <div id="funstuff" onclick="darkModeToggle()">
+
+            <div id="darkMode">
+
+                <img id="sunImage" src="./assets/sunicon.svg" alt="sun">
+                <img id="moonImage" src="./assets/moonicon.svg" alt="moon">
+
+            </div>
+
+            <p id="dmTooltip"> DARK MODE </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ARTICLE -->
+
+    <div class="container" id="page1">
+
+        <div class="greeting">
+
+            <h1 id="slashes" class="subtitle"> // </h1>
+
+            <div id="typewriterContainer">
+
+                <div id="hello"> hello. </div>
+
+            </div>
+
+            <p class="subtitle"> article section </p>
+
+            <div class="subContainer">
+
+                <h3>ARTICLE</h3>
+
+                <p>
+                    [insert]
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT ME -->
+
+    <div class="container" id="page2">
+
+        <div class="greeting">
+
+            <div class="subContainer">
+
+                <h3>ABOUT ME</h3>
+
+                <p>
+                    [insert]
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- REFLECTION -->
+
+    <div class="container" id="page3">
+
+        <div class="greeting">
+
+            <div class="subContainer">
+
+                <h3>REFLECTION</h3>
+
+                <p>
+                    [insert]
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRELIM -->
+
+    <div class="container" id="page4">
+
+        <div class="greeting">
+
+            <div class="subContainer">
+
+                <h3>QUIZZES</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+            <div class="subContainer">
+
+                <h3>EXAMS</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+            <div class="subContainer">
+
+                <h3>SEATWORKS</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MIDTERM -->
+
+    <div class="container" id="page5">
+
+        <div class="greeting">
+
+            <div class="subContainer">
+
+                <h3>QUIZZES</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+            <div class="subContainer">
+
+                <h3>EXAMS</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+            <div class="subContainer">
+
+                <h3>SEATWORKS</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINALS -->
+
+    <div class="container" id="page6">
+
+        <div class="greeting">
+
+            <div class="subContainer">
+
+                <h3>QUIZZES</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+            <div class="subContainer">
+
+                <h3>EXAMS</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+            <div class="subContainer">
+
+                <h3>SEATWORKS</h3>
+
+                <ul>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                    <li>[insert]</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="credits">
+
+            <p>portfolio website</p>
+            <p>made with html, css, and javascript</p>
+
+        </div>
+
+    </div>
+
+    <script src="main.js" async defer></script>
+
+</body>
+
+</html>
