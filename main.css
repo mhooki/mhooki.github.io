@@ -1,13 +1,14 @@
 :root {
     --mainBG: rgb(255, 240, 245);
-    --mainFG: rgb(30, 10, 20);
-    --subFG: rgb(180, 100, 130);
-    --mainAccent: rgb(220, 60, 120);
+    --mainFG: rgb(60, 20, 40);
+    --subFG: rgb(180, 100, 140);
+    --mainAccent: rgb(255, 105, 180);
 
-    --darkBG: rgb(30, 10, 20);
+    --darkBG: rgb(35, 15, 30);
     --darkFG: rgb(255, 230, 240);
-    --darkSubFG: rgb(180, 100, 130);
-    --darkAccent: rgb(255, 105, 180);
+    --darkSubFG: rgb(200, 140, 170);
+    --darkAccent: rgb(255, 130, 200);
+
     box-sizing: border-box;
 }
 
@@ -19,9 +20,6 @@ html, body {
     max-width: 23in;
     margin: 0 auto;
     transition: background 1s, color 1s;
-    -webkit-transition: background 1s, color 1s;
-    -moz-transition: background 1s, color 1s;
-    -o-transition: background 1s, color 1s;
 }
 
 a {
@@ -34,28 +32,6 @@ a:hover, .pageLabel:hover {
     text-decoration: underline;
 }
 
-#typewriterContainer {
-    width: fit-content;
-}
-
-#hello {
-    display: inline-block;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typewriter 2s 1s steps(6, start) infinite alternate,
-    blink 1s infinite;
-    -moz-animation: typewriter 2s 1s steps(6, start) infinite alternate,
-    blink 1s infinite;
-    -webkit-animation: typewriter 2s 1s steps(6, start) infinite alternate,
-    blink 1s infinite;
-    -o-animation: typewriter 2s 1s steps(6, start) infinite alternate,
-    blink 1s infinite;
-    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
-    font-weight: bold;
-    border-right: 2px solid var(--mainAccent);
-}
-
 .subtitle {
     font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
@@ -65,58 +41,13 @@ a:hover, .pageLabel:hover {
     text-align: left;
 }
 
-#image1 {
-    width: 60%;
-    transition: opacity 0.25s, bottom 0.25s;
-    -moz-transition: opacity 0.25s, bottom 0.25s;
-    -webkit-transition: opacity 0.25s, bottom 0.25s;
-    -o-transition: opacity 0.25s, bottom 0.25s;
-    position: relative;
-    border-radius: 4px;
-}
-
-#page1::before {
-    opacity: 0;
-}
-
-#page1 {
-    animation: fadeIn 1.5s;
-    -webkit-animation: fadeIn 1.5s;
-    -moz-animation: fadeIn 1.5s;
-    -o-animation: fadeIn 1.5s; 
-}
-
-#page1 > .greeting > .header {
-    line-height: 0;
-}
-
-#page2, #page3, #page4 {
-    min-height: 800px;
-}
-
-#page4 {
-    height: fit-content;
-}
-
-#page4 .greeting p {
-    text-indent: 40px;
-}
-
-.credits {
-    width: 60%;
-    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
-    text-align: left;
-    font-size: smaller;
-}
-
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 65%;
-    height: 90vh;
-    max-height: 3840px;
+    min-height: 100vh;
     padding: 5vh 5%;
     float: right;
 }
@@ -124,89 +55,27 @@ a:hover, .pageLabel:hover {
 .pageLabel {
     letter-spacing: 2px;
     font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+    color: var(--subFG);
+    transition: color 0.25s;
 }
 
 #sidebar {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column wrap;
+    flex-direction: column;
     height: 100vh;
-    max-height: 2160px;
     width: 25%;
     min-width: 300px;
     max-width: 500px;
     float: left;
     position: fixed;
-    animation: sidebarSlideIn 0.5s;
-    -webkit-animation: sidebarSlideIn 0.5s;
-    -moz-animation: sidebarSlideIn 0.5s;
-    -o-animation: sidebarSlideIn 0.5s;
+    background: rgba(255, 240, 245, 0.9);
+    backdrop-filter: blur(10px);
 }
 
-#funstuff {
+#sidebarContainer {
     width: 60%;
-    height: 10%;
-    max-height: 2em;
-    min-height: 100px;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    align-self: flex-start;
-    flex-direction: row nowrap;
-    align-items: center;
-    cursor: pointer;
-}
-
-#dmTooltip {
-    font-size: x-small;
-    margin: 2em;
-    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
-    letter-spacing: 2px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.25s, color 0.25s;
-    -webkit-transition: opacity 0.25s, color 0.25s;
-    -moz-transition: opacity 0.25s, color 0.25s;
-    -o-transition: opacity 0.25s, color 0.25s;
-}
-
-#funstuff:hover #dmTooltip {
-    opacity: 1;
-}
-
-#darkMode {
-    display: inline-flex;
-    flex-direction: column;
-    height: 1em;
-    width: 1em;
-    overflow-y: hidden;
-}
-
-#sunImage, #moonImage {
-    width: 1em;
-    height: 1em;
-    transition: margin 0.25s;
-    -webkit-transition: margin 0.25s;
-    -moz-transition: margin 0.25s;
-    -o-transition: margin 0.25s;
-}
-
-#translate {
-    display: flex;
-    flex-direction: column;
-    height: 3em;
-    overflow-y: hidden;
-    cursor: pointer;
-}
-
-#filtoen, #entofil {
-    width: 3em;
-    height: auto;
-    transition: margin 0.25s;
-    -webkit-transition: margin 0.25s;
-    -moz-transition: margin 0.25s;
-    -o-transition: margin 0.25s;
 }
 
 .separator {
@@ -214,165 +83,68 @@ a:hover, .pageLabel:hover {
     height: auto;
 }
 
-#sidebarContainer {
-    width: 60%;
-    margin-bottom: -200px;
+h1 {
+    color: var(--mainAccent);
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+p {
+    color: var(--subFG);
+    line-height: 1.8;
+    font-size: 1rem;
 }
 
-@keyframes sidebarSlideIn {
-    from {
-        opacity: 0;
-        margin-left: -40px;
-    }
-
-    to {
-        opacity: 1;
-        margin-left: 0;
-    }
+.card {
+    width: 100%;
+    background: white;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.15);
 }
 
-@keyframes typewriter {
-    0% {
-        width: 0%;
-    }
+@media only screen and (max-width: 600px) {
 
-    50%, 100% {
-        width: 100%;
-    }
-}
-
-
-/*
- *  breakpoints
- */
-
- @media only screen and (max-width: 600px) {
     .container {
         width: 100vw;
         padding: 5vh 0;
     }
 
-    .greeting, .credits {
-        width: 80%;
+    .greeting {
+        width: 85%;
     }
 
-    .credits {
-        padding-bottom: 20vh;
-    }
-
-    #image1 {
-        width: 100%;
-    }
-
-     #sidebar {
-         width: 100vw;
-         max-width: 600px;
-         backdrop-filter: blur(10px);
-         -webkit-backdrop-filter: blur(10px);
-         opacity: 0;
-         z-index: -1;
-         animation: none;
-         -webkit-animation: none;
-         -moz-animation: none;
-         transition: opacity 0.25s, background-color 1s, color 1s;
-         -webkit-transition: opacity 0.25s, background-color 1s, color 1s;
-         -moz-transition: opacity 0.25s, background-color 1s, color 1s;
-         -o-transition: opacity 0.25s, background-color 1s, color 1s;
-         padding: none;
-     }
-
-     #sidebarContainer {
-         margin-bottom: 0 !important;
-     }
-
-     .separator {
-        width: 2em;
+    #sidebar {
+        width: 100vw;
+        min-width: unset;
+        max-width: unset;
         height: auto;
+        padding: 20px 0;
+        position: fixed;
+        z-index: 10;
     }
 
-     .pageLabel {
-        font-size: 12pt;
-        
-     }
+    #sidebarContainer {
+        width: 90%;
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+    }
 
-     #dmTooltip {
-        opacity: 0.7;
-     }
+    .pageLabel {
+        white-space: nowrap;
+        font-size: 12px;
+    }
 
-     #mobileNavBar {
-         position: fixed;
-         top: 0;
-         z-index: 2;
-         width: 100vw;
-         height: 6vh;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         cursor: pointer;
-         transition: background-color 1s, color 1s;
-         -moz-transition: background-color 1s, color 1s;
-         -webkit-transition: background-color 1s, color 1s;
-         -o-transition: background-color 1s, color 1s;
-     }
-
-     #menu {
-         height: 2em;
-         width: auto;
-         overflow-y: hidden;
-         display: flex;
-         flex-direction: column;
-     }
-
-     #burger {
-         height: 2em;
-         width: auto;
-     }
-
-     #close {
-        height: 2em;
-        width: auto;
-        margin-top: -2em;
-        transition: margin-top 0.25s;
-        -moz-transition: margin-top 0.25s;
-        -webkit-transition: margin-top 0.25s;
-        -o-transition: margin-top 0.25s;
-     }
-
-     #funstuff {
-         background: none !important;
-         min-height: 100px;
-         justify-content: center;
-     }
- }
-
- @media only screen and (min-width: 601px) {
-    #mobileNavBar {
+    .separator {
         display: none;
     }
- }
 
- @media only screen and (max-height: 700px) and (orientation: landscape) {
-     #sidebarContainer {
-         margin-bottom: 0 !important;
-     }
-
-     #funstuff {
-        display: none;
+    h1 {
+        font-size: 2rem;
     }
- }
 
- @media only screen and (hover: none) {  
-    .pageLabel:hover {
-        text-decoration: none;
+    .card {
+        padding: 30px;
     }
- }
+}
