@@ -1,8 +1,55 @@
 /* 
- * Pink Portfolio Navigation Script
+ *  dynamic toggleable dark mode
  */
 
-var pageLabels = document.getElementsByClassName("pageLabel");
+var darkMode = window.matchMedia("(prefers-color-scheme: dark)");
+var sunImage = document.getElementById('sunImage');
+var link = document.getElementsByTagName('link');
+var tooltip = document.getElementById('dmTooltip');
+var pageIsDark;
+
+if (darkMode.matches) {
+    pageIsDark = true;
+    sunImage.style.marginTop = '0';
+
+    link[1].disabled = false;
+    link[2].disabled = true;
+
+    tooltip.innerHTML = 'LIGHT MODE';
+} else {
+    pageIsDark = false;
+    sunImage.style.marginTop = '-1em';
+
+    link[1].disabled = true;
+    link[2].disabled = false;
+
+    tooltip.innerHTML = 'DARK MODE';
+}
+
+function darkModeToggle() {
+    if (pageIsDark == true) {
+        document.getElementsByTagName('link')[1].disabled = true;
+        document.getElementsByTagName('link')[2].disabled = false;
+
+        pageIsDark = false;
+
+        document.getElementById('sunImage').style.marginTop = '-1em';
+        document.getElementById('dmTooltip').innerHTML = 'DARK MODE';
+    } else {
+        document.getElementsByTagName('link')[1].disabled = false;
+        document.getElementsByTagName('link')[2].disabled = true;
+
+        pageIsDark = true;
+
+        document.getElementById('sunImage').style.marginTop = '0';
+        document.getElementById('dmTooltip').innerHTML = 'LIGHT MODE';
+    }
+}
+
+
+/*
+ *  sidebar active page labels
+ */
 
 document.addEventListener('scroll', function () {
 
@@ -13,43 +60,133 @@ document.addEventListener('scroll', function () {
 
     var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
 
-    // Reset all labels first
-    for (let i = 0; i < pageLabels.length; i++) {
-        pageLabels[i].style.color = 'rgb(180, 100, 140)';
+    var pageLabel = document.getElementsByClassName("pageLabel");
+
+    var activeColor = pageIsDark
+        ? 'rgb(255, 140, 200)'
+        : 'rgb(255, 105, 180)';
+
+    var inactiveColor = pageIsDark
+        ? 'rgb(105, 105, 125)'
+        : 'rgb(120, 120, 140)';
+
+    for (let i = 0; i < pageLabel.length; i++) {
+        pageLabel[i].style.color = inactiveColor;
     }
 
-    // Highlight active section
     if (percent <= 15) {
-        pageLabels[0].style.color = 'rgb(255, 105, 180)';
-        pageLabels[0].innerHTML = '· // ABOUT ME';
+        pageLabel[0].style.color = activeColor;
 
     } else if (percent <= 30) {
-        pageLabels[1].style.color = 'rgb(255, 105, 180)';
-        pageLabels[1].innerHTML = '· // ARTICLE';
+        pageLabel[1].style.color = activeColor;
 
     } else if (percent <= 45) {
-        pageLabels[2].style.color = 'rgb(255, 105, 180)';
-        pageLabels[2].innerHTML = '· // REFLECTION';
+        pageLabel[2].style.color = activeColor;
 
     } else if (percent <= 60) {
-        pageLabels[3].style.color = 'rgb(255, 105, 180)';
-        pageLabels[3].innerHTML = '· // PRELIM';
+        pageLabel[3].style.color = activeColor;
 
     } else if (percent <= 80) {
-        pageLabels[4].style.color = 'rgb(255, 105, 180)';
-        pageLabels[4].innerHTML = '· // MIDTERM';
+        pageLabel[4].style.color = activeColor;
 
     } else {
-        pageLabels[5].style.color = 'rgb(255, 105, 180)';
-        pageLabels[5].innerHTML = '· // FINALS';
+        pageLabel[5].style.color = activeColor;
     }
+});
 
-    // Reset non-active labels
-    if (percent > 15) pageLabels[0].innerHTML = '// ABOUT ME';
-    if (percent <= 15 || percent > 30) pageLabels[1].innerHTML = '// ARTICLE';
-    if (percent <= 30 || percent > 45) pageLabels[2].innerHTML = '// REFLECTION';
-    if (percent <= 45 || percent > 60) pageLabels[3].innerHTML = '// PRELIM';
-    if (percent <= 60 || percent > 80) pageLabels[4].innerHTML = '// MIDTERM';
-    if (percent <= 80) pageLabels[5].innerHTML = '// FINALS';
 
+/*
+ *  page reveal animation
+ */
+
+document.addEventListener('scroll', function () {
+
+    var h = document.documentElement,
+        b = document.body,
+        st = 'scrollTop',
+        sh = 'scrollHeight';
+
+    var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+
+    var cards = document.getElementsByClassName('subContainer');
+
+    for (let i = 0; i < cards.length; i++) {
+
+        if (percent > 10) {
+            cards[i].style.opacity = 1;
+            cards[i].style.transform = 'translateY(0)';
+        } else {
+            cards[i].style.opacity = 0;
+            cards[i].style.transform = 'translateY(20px)';
+        }
+    }
+});
+
+
+/*
+ *  mobile navbar
+ */
+
+var sidebarVisible = false;
+var sidebar = document.getElementById('sidebar');
+var close = document.getElementById('close');
+
+var desktopWidth = window.matchMedia("(min-width: 601px)");
+
+desktopWidth.addEventListener('change', function () {
+
+    if (desktopWidth.matches) {
+
+        sidebarVisible = false;
+        sidebar.style.opacity = 1;
+
+    } else {
+
+        sidebar.style.opacity = 0;
+    }
+});
+
+function sidebarToggle() {
+
+    if (desktopWidth.matches == false) {
+
+        if (sidebarVisible == false) {
+
+            sidebarVisible = true;
+
+            sidebar.style.opacity = 1;
+            sidebar.style.zIndex = 1;
+
+            close.style.marginTop = 0;
+
+        } else {
+
+            sidebarVisible = false;
+
+            sidebar.style.opacity = 0;
+            sidebar.style.zIndex = -1;
+
+            close.style.marginTop = '-2em';
+        }
+    }
+}
+
+
+/*
+ *  smooth hover glow for sub containers
+ */
+
+var subContainers = document.querySelectorAll('.subContainer');
+
+subContainers.forEach(function(card) {
+
+    card.addEventListener('mouseenter', function() {
+
+        card.style.transform = 'translateY(-5px)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+
+        card.style.transform = 'translateY(0)';
+    });
 });
