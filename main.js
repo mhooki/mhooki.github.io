@@ -1,5 +1,6 @@
 /* 
  *  dynamic toggleable dark mode by jay carlos
+ *  pink theme adaptation
  */
 
 
@@ -10,18 +11,14 @@ var tooltip = document.getElementById('dmTooltip');
 var pageIsDark;
 
 if (darkMode.matches) {
-    // if system is dark, turn pageIsDark to true and move the sun image down
     pageIsDark = true;
     sunImage.style.marginTop = '0';
-    // enable dark.css and disable light.css
     link[1].disabled = false;
     link[2].disabled = true;
     tooltip.innerHTML = 'LIGHT MODE';
 } else {
-    // if system is light, turn pageIsDark to false and move the sun image up
     pageIsDark = false;
     sunImage.style.marginTop = '-1em';
-    // disable dark.css and enable light.css
     link[1].disabled = true;
     link[2].disabled = false;
     tooltip.innerHTML = 'DARK MODE';
@@ -64,75 +61,194 @@ document.addEventListener('scroll', function () {
     var pageLabel = document.getElementsByClassName("pageLabel");
 
     // checks the percentage scrolled and modifies the sidebar text accordingly
-    // if (darkMode.matches) checks the css media query and adjusts the colors
-    if (percent <= 25) {
-        if (pageIsDark == true) {
-            pageLabel[0].style.color = 'rgb(135, 135, 190)';
-            pageLabel[1].style.color = 'rgb(105, 105, 125)';
-            pageLabel[2].style.color = 'rgb(105, 105, 125)';
-            pageLabel[3].style.color = 'rgb(105, 105, 125)';
-        } else {
-            pageLabel[0].style.color = 'rgb(100, 100, 180)';
-            pageLabel[1].style.color = 'rgb(120, 120, 140)';
-            pageLabel[2].style.color = 'rgb(120, 120, 140)';
-            pageLabel[3].style.color = 'rgb(120, 120, 140';
-        }
+    // pink active color:   rgb(255, 105, 180)  — hot pink
+    // pink inactive dark:  rgb(180, 100, 130)  — muted rose (dark mode)
+    // pink inactive light: rgb(200, 130, 155)  — muted pink (light mode)
 
+    // Scroll breakpoints divided evenly across 7 sections (each ~14.28%)
+    // Sections: WELCOME, ARTICLE, ABOUT ME, REFLECTION, PRELIM, MIDTERM, FINALS
+
+    if (percent <= 14) {
+        if (pageIsDark == true) {
+            pageLabel[0].style.color = 'rgb(255, 105, 180)';
+            pageLabel[1].style.color = 'rgb(180, 100, 130)';
+            pageLabel[2].style.color = 'rgb(180, 100, 130)';
+            pageLabel[3].style.color = 'rgb(180, 100, 130)';
+            pageLabel[4].style.color = 'rgb(180, 100, 130)';
+            pageLabel[5].style.color = 'rgb(180, 100, 130)';
+            pageLabel[6].style.color = 'rgb(180, 100, 130)';
+        } else {
+            pageLabel[0].style.color = 'rgb(220, 60, 120)';
+            pageLabel[1].style.color = 'rgb(200, 130, 155)';
+            pageLabel[2].style.color = 'rgb(200, 130, 155)';
+            pageLabel[3].style.color = 'rgb(200, 130, 155)';
+            pageLabel[4].style.color = 'rgb(200, 130, 155)';
+            pageLabel[5].style.color = 'rgb(200, 130, 155)';
+            pageLabel[6].style.color = 'rgb(200, 130, 155)';
+        }
         pageLabel[0].innerHTML = '· // WELCOME';
-        pageLabel[1].innerHTML = '// BIONOTE';
-        pageLabel[2].innerHTML = '// MGA DOKUMENTO';
-        pageLabel[3].innerHTML = '// REPLEKSYON';
-    } else if (percent >= 25 && percent <= 45) {
-        if (pageIsDark == true) {
-            pageLabel[0].style.color = 'rgb(105, 105, 125)';
-            pageLabel[1].style.color = 'rgb(135, 135, 190)';
-            pageLabel[2].style.color = 'rgb(105, 105, 125)';
-            pageLabel[3].style.color = 'rgb(105, 105, 125)';
-        } else {
-            pageLabel[0].style.color = 'rgb(120, 120, 140)';
-            pageLabel[1].style.color = 'rgb(100, 100, 180)';
-            pageLabel[2].style.color = 'rgb(120, 120, 140)';
-            pageLabel[3].style.color = 'rgb(120, 120, 140)';   
-        }
+        pageLabel[1].innerHTML = '// ARTICLE';
+        pageLabel[2].innerHTML = '// ABOUT ME';
+        pageLabel[3].innerHTML = '// REFLECTION';
+        pageLabel[4].innerHTML = '// PRELIM';
+        pageLabel[5].innerHTML = '// MIDTERM';
+        pageLabel[6].innerHTML = '// FINALS';
 
-        pageLabel[0].innerHTML = '// WELCOME';
-        pageLabel[1].innerHTML = '· // BIONOTE';
-        pageLabel[2].innerHTML = '// MGA DOKUMENTO';
-        pageLabel[3].innerHTML = '// REPLEKSYON';
-    } else if (percent >= 45 && percent <= 75) {
+    } else if (percent > 14 && percent <= 28) {
         if (pageIsDark == true) {
-            pageLabel[0].style.color = 'rgb(105, 105, 125)';
-            pageLabel[1].style.color = 'rgb(105, 105, 125)';
-            pageLabel[2].style.color = 'rgb(135, 135, 190)';
-            pageLabel[3].style.color = 'rgb(105, 105, 125)';
+            pageLabel[0].style.color = 'rgb(180, 100, 130)';
+            pageLabel[1].style.color = 'rgb(255, 105, 180)';
+            pageLabel[2].style.color = 'rgb(180, 100, 130)';
+            pageLabel[3].style.color = 'rgb(180, 100, 130)';
+            pageLabel[4].style.color = 'rgb(180, 100, 130)';
+            pageLabel[5].style.color = 'rgb(180, 100, 130)';
+            pageLabel[6].style.color = 'rgb(180, 100, 130)';
         } else {
-            pageLabel[0].style.color = 'rgb(120, 120, 140)';
-            pageLabel[1].style.color = 'rgb(120, 120, 140)';
-            pageLabel[2].style.color = 'rgb(100, 100, 180)';
-            pageLabel[3].style.color = 'rgb(120, 120, 140)';   
+            pageLabel[0].style.color = 'rgb(200, 130, 155)';
+            pageLabel[1].style.color = 'rgb(220, 60, 120)';
+            pageLabel[2].style.color = 'rgb(200, 130, 155)';
+            pageLabel[3].style.color = 'rgb(200, 130, 155)';
+            pageLabel[4].style.color = 'rgb(200, 130, 155)';
+            pageLabel[5].style.color = 'rgb(200, 130, 155)';
+            pageLabel[6].style.color = 'rgb(200, 130, 155)';
         }
-
         pageLabel[0].innerHTML = '// WELCOME';
-        pageLabel[1].innerHTML = '// BIONOTE';
-        pageLabel[2].innerHTML = '· // MGA DOKUMENTO';
-        pageLabel[3].innerHTML = '// REPLEKSYON';
+        pageLabel[1].innerHTML = '· // ARTICLE';
+        pageLabel[2].innerHTML = '// ABOUT ME';
+        pageLabel[3].innerHTML = '// REFLECTION';
+        pageLabel[4].innerHTML = '// PRELIM';
+        pageLabel[5].innerHTML = '// MIDTERM';
+        pageLabel[6].innerHTML = '// FINALS';
+
+    } else if (percent > 28 && percent <= 42) {
+        if (pageIsDark == true) {
+            pageLabel[0].style.color = 'rgb(180, 100, 130)';
+            pageLabel[1].style.color = 'rgb(180, 100, 130)';
+            pageLabel[2].style.color = 'rgb(255, 105, 180)';
+            pageLabel[3].style.color = 'rgb(180, 100, 130)';
+            pageLabel[4].style.color = 'rgb(180, 100, 130)';
+            pageLabel[5].style.color = 'rgb(180, 100, 130)';
+            pageLabel[6].style.color = 'rgb(180, 100, 130)';
+        } else {
+            pageLabel[0].style.color = 'rgb(200, 130, 155)';
+            pageLabel[1].style.color = 'rgb(200, 130, 155)';
+            pageLabel[2].style.color = 'rgb(220, 60, 120)';
+            pageLabel[3].style.color = 'rgb(200, 130, 155)';
+            pageLabel[4].style.color = 'rgb(200, 130, 155)';
+            pageLabel[5].style.color = 'rgb(200, 130, 155)';
+            pageLabel[6].style.color = 'rgb(200, 130, 155)';
+        }
+        pageLabel[0].innerHTML = '// WELCOME';
+        pageLabel[1].innerHTML = '// ARTICLE';
+        pageLabel[2].innerHTML = '· // ABOUT ME';
+        pageLabel[3].innerHTML = '// REFLECTION';
+        pageLabel[4].innerHTML = '// PRELIM';
+        pageLabel[5].innerHTML = '// MIDTERM';
+        pageLabel[6].innerHTML = '// FINALS';
+
+    } else if (percent > 42 && percent <= 57) {
+        if (pageIsDark == true) {
+            pageLabel[0].style.color = 'rgb(180, 100, 130)';
+            pageLabel[1].style.color = 'rgb(180, 100, 130)';
+            pageLabel[2].style.color = 'rgb(180, 100, 130)';
+            pageLabel[3].style.color = 'rgb(255, 105, 180)';
+            pageLabel[4].style.color = 'rgb(180, 100, 130)';
+            pageLabel[5].style.color = 'rgb(180, 100, 130)';
+            pageLabel[6].style.color = 'rgb(180, 100, 130)';
+        } else {
+            pageLabel[0].style.color = 'rgb(200, 130, 155)';
+            pageLabel[1].style.color = 'rgb(200, 130, 155)';
+            pageLabel[2].style.color = 'rgb(200, 130, 155)';
+            pageLabel[3].style.color = 'rgb(220, 60, 120)';
+            pageLabel[4].style.color = 'rgb(200, 130, 155)';
+            pageLabel[5].style.color = 'rgb(200, 130, 155)';
+            pageLabel[6].style.color = 'rgb(200, 130, 155)';
+        }
+        pageLabel[0].innerHTML = '// WELCOME';
+        pageLabel[1].innerHTML = '// ARTICLE';
+        pageLabel[2].innerHTML = '// ABOUT ME';
+        pageLabel[3].innerHTML = '· // REFLECTION';
+        pageLabel[4].innerHTML = '// PRELIM';
+        pageLabel[5].innerHTML = '// MIDTERM';
+        pageLabel[6].innerHTML = '// FINALS';
+
+    } else if (percent > 57 && percent <= 71) {
+        if (pageIsDark == true) {
+            pageLabel[0].style.color = 'rgb(180, 100, 130)';
+            pageLabel[1].style.color = 'rgb(180, 100, 130)';
+            pageLabel[2].style.color = 'rgb(180, 100, 130)';
+            pageLabel[3].style.color = 'rgb(180, 100, 130)';
+            pageLabel[4].style.color = 'rgb(255, 105, 180)';
+            pageLabel[5].style.color = 'rgb(180, 100, 130)';
+            pageLabel[6].style.color = 'rgb(180, 100, 130)';
+        } else {
+            pageLabel[0].style.color = 'rgb(200, 130, 155)';
+            pageLabel[1].style.color = 'rgb(200, 130, 155)';
+            pageLabel[2].style.color = 'rgb(200, 130, 155)';
+            pageLabel[3].style.color = 'rgb(200, 130, 155)';
+            pageLabel[4].style.color = 'rgb(220, 60, 120)';
+            pageLabel[5].style.color = 'rgb(200, 130, 155)';
+            pageLabel[6].style.color = 'rgb(200, 130, 155)';
+        }
+        pageLabel[0].innerHTML = '// WELCOME';
+        pageLabel[1].innerHTML = '// ARTICLE';
+        pageLabel[2].innerHTML = '// ABOUT ME';
+        pageLabel[3].innerHTML = '// REFLECTION';
+        pageLabel[4].innerHTML = '· // PRELIM';
+        pageLabel[5].innerHTML = '// MIDTERM';
+        pageLabel[6].innerHTML = '// FINALS';
+
+    } else if (percent > 71 && percent <= 85) {
+        if (pageIsDark == true) {
+            pageLabel[0].style.color = 'rgb(180, 100, 130)';
+            pageLabel[1].style.color = 'rgb(180, 100, 130)';
+            pageLabel[2].style.color = 'rgb(180, 100, 130)';
+            pageLabel[3].style.color = 'rgb(180, 100, 130)';
+            pageLabel[4].style.color = 'rgb(180, 100, 130)';
+            pageLabel[5].style.color = 'rgb(255, 105, 180)';
+            pageLabel[6].style.color = 'rgb(180, 100, 130)';
+        } else {
+            pageLabel[0].style.color = 'rgb(200, 130, 155)';
+            pageLabel[1].style.color = 'rgb(200, 130, 155)';
+            pageLabel[2].style.color = 'rgb(200, 130, 155)';
+            pageLabel[3].style.color = 'rgb(200, 130, 155)';
+            pageLabel[4].style.color = 'rgb(200, 130, 155)';
+            pageLabel[5].style.color = 'rgb(220, 60, 120)';
+            pageLabel[6].style.color = 'rgb(200, 130, 155)';
+        }
+        pageLabel[0].innerHTML = '// WELCOME';
+        pageLabel[1].innerHTML = '// ARTICLE';
+        pageLabel[2].innerHTML = '// ABOUT ME';
+        pageLabel[3].innerHTML = '// REFLECTION';
+        pageLabel[4].innerHTML = '// PRELIM';
+        pageLabel[5].innerHTML = '· // MIDTERM';
+        pageLabel[6].innerHTML = '// FINALS';
+
     } else {
         if (pageIsDark == true) {
-            pageLabel[0].style.color = 'rgb(105, 105, 125)';
-            pageLabel[1].style.color = 'rgb(105, 105, 125)';
-            pageLabel[2].style.color = 'rgb(105, 105, 125)';
-            pageLabel[3].style.color = 'rgb(135, 135, 190)';
+            pageLabel[0].style.color = 'rgb(180, 100, 130)';
+            pageLabel[1].style.color = 'rgb(180, 100, 130)';
+            pageLabel[2].style.color = 'rgb(180, 100, 130)';
+            pageLabel[3].style.color = 'rgb(180, 100, 130)';
+            pageLabel[4].style.color = 'rgb(180, 100, 130)';
+            pageLabel[5].style.color = 'rgb(180, 100, 130)';
+            pageLabel[6].style.color = 'rgb(255, 105, 180)';
         } else {
-            pageLabel[0].style.color = 'rgb(120, 120, 140)';
-            pageLabel[1].style.color = 'rgb(120, 120, 140)';
-            pageLabel[2].style.color = 'rgb(120, 120, 140)';
-            pageLabel[3].style.color = 'rgb(100, 100, 180)';
+            pageLabel[0].style.color = 'rgb(200, 130, 155)';
+            pageLabel[1].style.color = 'rgb(200, 130, 155)';
+            pageLabel[2].style.color = 'rgb(200, 130, 155)';
+            pageLabel[3].style.color = 'rgb(200, 130, 155)';
+            pageLabel[4].style.color = 'rgb(200, 130, 155)';
+            pageLabel[5].style.color = 'rgb(200, 130, 155)';
+            pageLabel[6].style.color = 'rgb(220, 60, 120)';
         }
-        
         pageLabel[0].innerHTML = '// WELCOME';
-        pageLabel[1].innerHTML = '// BIONOTE';
-        pageLabel[2].innerHTML = '// MGA DOKUMENTO';
-        pageLabel[3].innerHTML = '· // REPLEKSYON';
+        pageLabel[1].innerHTML = '// ARTICLE';
+        pageLabel[2].innerHTML = '// ABOUT ME';
+        pageLabel[3].innerHTML = '// REFLECTION';
+        pageLabel[4].innerHTML = '// PRELIM';
+        pageLabel[5].innerHTML = '// MIDTERM';
+        pageLabel[6].innerHTML = '· // FINALS';
     }
 
     document.getElementById('sidebarContainer').style.marginBottom = adjPercent + 'px';
