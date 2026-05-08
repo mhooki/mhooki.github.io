@@ -1,13 +1,13 @@
 :root {
-    --mainBG: rgb(225, 225, 235);
-    --mainFG: rgb(20, 20, 30);
-    --subFG: rgb(120, 120, 140);
-    --mainAccent: rgb(100, 100, 180);
+    --mainBG: rgb(255, 240, 245);
+    --mainFG: rgb(30, 10, 20);
+    --subFG: rgb(180, 100, 130);
+    --mainAccent: rgb(220, 60, 120);
 
-    --darkBG: rgb(20, 20, 30);
-    --darkFG: rgb(225, 225, 235);
-    --darkSubFG: rgb(105, 105, 125);
-    --darkAccent: rgb(135, 135, 190);
+    --darkBG: rgb(30, 10, 20);
+    --darkFG: rgb(255, 230, 240);
+    --darkSubFG: rgb(180, 100, 130);
+    --darkAccent: rgb(255, 105, 180);
     box-sizing: border-box;
 }
 
