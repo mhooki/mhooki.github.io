@@ -1,37 +1,63 @@
-html, body {
+html,
+body {
     background-color: var(--mainBG);
     color: var(--mainFG);
 }
 
 a,
 .pageLabel,
-.subtitle,
-p {
+.credits,
+#dmTooltip,
+.subtitle {
     color: var(--subFG);
 }
 
+#slashes,
+.subContainer h3,
 a:hover,
+#funstuff:hover #dmTooltip,
 .pageLabel:hover {
     color: var(--mainAccent);
 }
 
-.card {
-    background: white;
-    color: var(--mainFG);
+.subContainer {
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(255, 182, 193, 0.35);
+
+    box-shadow:
+    0 10px 30px rgba(255, 105, 180, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 #sidebar {
-    background-color: rgba(255, 240, 245, 0.92);
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255, 245, 250, 0.95),
+        rgba(255, 235, 245, 0.9)
+    );
 }
 
-h1 {
-    color: var(--mainAccent);
+#mobileNavBar {
+    background: var(--mainBG);
+}
+
+#hello {
+    border-right: 2px solid var(--mainAccent);
+}
+
+::selection {
+    background: rgba(255, 105, 180, 0.2);
 }
 
 @media only screen and (max-width: 600px) {
 
     #sidebar {
-        background-color: rgba(255, 240, 245, 0.95);
+        background-color: rgba(255, 245, 250, 0.92);
     }
 
+    .subContainer {
+        background: rgba(255, 255, 255, 0.9);
+    }
 }
