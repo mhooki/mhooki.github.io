@@ -1,0 +1,64 @@
+html,
+body {
+    background-color: var(--darkBG);
+    color: var(--darkFG);
+}
+
+a,
+.pageLabel,
+.credits,
+#dmTooltip,
+.subtitle,
+.sectionBox,
+.subContainer {
+    color: var(--darkSubFG);
+}
+
+#funstuff:hover #dmTooltip,
+a:hover,
+#slashes,
+.pageLabel:hover {
+    color: var(--darkAccent);
+}
+
+.sectionBox,
+.subContainer {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.codeBlock {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--darkFG);
+}
+
+.contentPlaceholder,
+.imagePlaceholder {
+    color: var(--darkAccent);
+}
+
+#image1 {
+    border: 4px solid var(--darkAccent);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--darkAccent);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #mobileNavBar {
+        background: var(--darkBG);
+    }
+
+    #sidebar {
+        background-color: rgba(30, 15, 30, 0.94);
+    }
+}
