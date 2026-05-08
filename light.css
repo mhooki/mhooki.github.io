@@ -1,0 +1,32 @@
+html, body {
+    background-color: var(--mainBG);
+    color: var(--mainFG);
+}
+
+a, .pageLabel, .credits, #dmTooltip, .subtitle {
+    color: var(--subFG);
+}
+
+#funstuff:hover #dmTooltip, a:hover, #slashes {
+    color: var(--mainAccent);
+}
+
+@keyframes blink {
+    0%, 100% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--mainAccent);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #mobileNavBar {
+        background: var(--mainBG);
+    }
+
+    #sidebar {
+        background-color: rgba(225, 225, 235, 0.9);
+    }
+}
