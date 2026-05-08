@@ -200,7 +200,6 @@ function sidebarToggle() {
 window.onload = function () {
     updateActivePage();
 };
-
 /* =========================
    DINO RANDOM JUMP
 ========================= */
