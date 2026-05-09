@@ -514,3 +514,19 @@ a:hover,
         text-decoration: none;
     }
 }
+.documentViewer {
+    width: 100%;
+    margin-top: 1.5rem;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    border: 3px solid var(--mainAccent);
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.documentViewer iframe {
+    border: none;
+    display: block;
+}
