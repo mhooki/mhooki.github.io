@@ -1,13 +1,8 @@
 :root {
-    --mainBG: rgb(58, 46, 57);
-    --mainFG: rgb(251, 231, 238);
-    --subFG: rgb(247, 161, 181);
-    --mainAccent: rgb(230, 57, 99);
-
     --darkBG: rgb(35, 20, 30);
     --darkFG: rgb(251, 231, 238);
     --darkSubFG: rgb(247, 161, 181);
-    --darkAccent: rgb(184, 15, 46);
+    --darkAccent: rgb(230, 57, 99);
 }
 
 html,
@@ -49,7 +44,7 @@ a {
 
 a:hover,
 .pageLabel:hover {
-    color: var(--mainAccent);
+    color: var(--darkAccent);
 }
 
 /* =========================
@@ -59,8 +54,10 @@ a:hover,
 #sidebar {
     background: rgba(35, 20, 30, 0.92);
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-right: 1px solid rgba(230, 57, 99, 0.15);
 }
 
 /* =========================
@@ -71,14 +68,16 @@ a:hover,
 .subContainer {
     background: rgba(255, 255, 255, 0.04);
 
-    border-color: var(--mainAccent);
+    border-color: var(--darkAccent);
 
-    box-shadow: 0 0 15px rgba(230, 57, 99, 0.15);
+    box-shadow: 0 0 20px rgba(230, 57, 99, 0.12);
 }
 
 .contentPlaceholder,
 .imagePlaceholder {
-    border-color: var(--mainAccent);
+    border-color: var(--darkAccent);
+
+    background: rgba(255, 255, 255, 0.03);
 
     color: var(--darkSubFG);
 }
@@ -94,9 +93,11 @@ a:hover,
 ========================= */
 
 .documentViewer {
-    border-color: var(--mainAccent);
+    border-color: var(--darkAccent);
 
     background: rgba(255, 255, 255, 0.03);
+
+    box-shadow: 0 0 20px rgba(230, 57, 99, 0.08);
 }
 
 /* =========================
@@ -106,7 +107,7 @@ a:hover,
 #hello {
     color: var(--darkFG);
 
-    border-right-color: var(--mainAccent);
+    border-right-color: var(--darkAccent);
 }
 
 /* =========================
@@ -114,9 +115,9 @@ a:hover,
 ========================= */
 
 #image1 {
-    border-color: var(--mainAccent);
+    border-color: var(--darkAccent);
 
-    box-shadow: 0 0 20px rgba(230, 57, 99, 0.2);
+    box-shadow: 0 0 25px rgba(230, 57, 99, 0.15);
 }
 
 /* =========================
@@ -124,7 +125,19 @@ a:hover,
 ========================= */
 
 #ground {
-    background: var(--mainAccent);
+    background: var(--darkAccent);
+}
+
+/* =========================
+   DARK MODE BUTTON
+========================= */
+
+#funstuff {
+    color: var(--darkFG);
+}
+
+#dmTooltip {
+    color: var(--darkSubFG);
 }
 
 /* =========================
@@ -136,11 +149,11 @@ a:hover,
 }
 
 ::-webkit-scrollbar-track {
-    background: rgb(25, 15, 25);
+    background: rgb(28, 16, 24);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--mainAccent);
+    background: var(--darkAccent);
 
     border-radius: 999px;
 }
