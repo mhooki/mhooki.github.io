@@ -1,60 +1,161 @@
+:root {
+    --mainBG: rgb(251, 231, 238);
+    --mainFG: rgb(58, 46, 57);
+    --subFG: rgb(230, 57, 99);
+    --mainAccent: rgb(184, 15, 46);
+
+    --lightCard: rgba(255, 255, 255, 0.55);
+    --lightBorder: rgba(184, 15, 46, 0.35);
+}
+
 html,
 body {
-    background-color: var(--mainBG);
+    background: var(--mainBG);
     color: var(--mainFG);
 }
 
-a,
-.pageLabel,
-.credits,
-#dmTooltip,
+/* =========================
+   TEXT
+========================= */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+li,
+a {
+    color: var(--mainFG);
+}
+
 .subtitle,
-.sectionBox,
-.subContainer {
+.pageLabel,
+#dmTooltip,
+.contentPlaceholder,
+.imagePlaceholder,
+.codeBlock,
+.credits {
     color: var(--subFG);
 }
 
-#funstuff:hover #dmTooltip,
+/* =========================
+   LINKS
+========================= */
+
 a:hover,
-#slashes,
 .pageLabel:hover {
     color: var(--mainAccent);
 }
 
-.sectionBox,
-.subContainer {
-    background-color: rgba(255, 255, 255, 0.45);
+/* =========================
+   SIDEBAR
+========================= */
+
+#sidebar {
+    background: rgba(251, 231, 238, 0.88);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.codeBlock {
-    background-color: rgba(0, 0, 0, 0.08);
-    color: var(--mainFG);
+/* =========================
+   BOXES
+========================= */
+
+.sectionBox,
+.subContainer {
+    background: var(--lightCard);
+
+    border-color: var(--mainAccent);
+
+    box-shadow: 0 0 15px rgba(230, 57, 99, 0.08);
 }
 
 .contentPlaceholder,
 .imagePlaceholder {
-    color: var(--mainAccent);
+    border-color: var(--mainAccent);
+
+    color: var(--subFG);
+
+    background: rgba(255, 255, 255, 0.35);
 }
 
-@keyframes blink {
+.codeBlock {
+    background: rgba(255, 255, 255, 0.45);
 
-    0%,
-    100% {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: var(--mainAccent);
-    }
+    color: var(--mainFG);
 }
+
+/* =========================
+   DOCUMENT VIEWER
+========================= */
+
+.documentViewer {
+    border-color: var(--mainAccent);
+
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+   TYPEWRITER
+========================= */
+
+#hello {
+    color: var(--mainFG);
+
+    border-right-color: var(--mainAccent);
+}
+
+/* =========================
+   IMAGES
+========================= */
+
+#image1 {
+    border-color: var(--mainAccent);
+
+    box-shadow: 0 0 18px rgba(230, 57, 99, 0.12);
+}
+
+/* =========================
+   DINO FOOTER
+========================= */
+
+#ground {
+    background: var(--mainAccent);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(245, 220, 228);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--mainAccent);
+
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(230, 57, 99);
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media only screen and (max-width: 600px) {
 
-    #mobileNavBar {
-        background: var(--mainBG);
-    }
-
     #sidebar {
-        background-color: rgba(255, 240, 246, 0.92);
+        background: rgba(251, 231, 238, 0.96);
     }
 }
