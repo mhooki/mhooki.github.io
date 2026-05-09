@@ -1,7 +1,5 @@
-:root {--mainBG: rgb(255, 240, 246);
-       --mainFG: rgb(40, 20, 35);
-       --subFG: rgb(170, 90, 130);
-       -mainAccent: rgb(255, 20, 147);
+:root {
+ --mainBG: rgb(255, 240, 246);--mainFG: rgb(40, 20, 35);--subFG: rgb(170, 90, 130);--mainAccent: rgb(255, 20, 147);
 
 --darkBG: rgb(30, 15, 30);
 --darkFG: rgb(255, 240, 246);
