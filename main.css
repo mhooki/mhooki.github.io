@@ -466,8 +466,28 @@ a:hover,
     }
 
     .subContainerGrid {
-        grid-template-columns: 1fr;
-    }
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 1.5rem;
+
+    width: 100%;
+    align-items: start;
+}
+
+.subContainer {
+    min-height: 250px;
+
+    padding: 1.5rem;
+
+    border-radius: 16px;
+
+    border: 2px solid var(--mainAccent);
+
+    background-color: rgba(255, 255, 255, 0.05);
+
+    overflow-wrap: break-word;
 }
 
 @media only screen and (min-width: 601px) {
