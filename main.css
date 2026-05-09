@@ -153,6 +153,8 @@ a:hover,
     gap: 0.7rem;
 
     margin: auto 0;
+
+    padding-left: 1rem;
 }
 
 .pageLabel {
@@ -515,6 +517,8 @@ a:hover,
 
     #sidebarContainer {
         align-items: center;
+
+        padding-left: 0;
     }
 
     .pageLabel {
