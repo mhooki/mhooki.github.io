@@ -126,7 +126,7 @@ a:hover,
 
 #sidebar {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 
     height: 100vh;
@@ -136,10 +136,14 @@ a:hover,
 
     position: fixed;
 
+    top: 0;
+    left: 0;
+
+    padding: 3vh 0;
+
     z-index: 100;
 
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    overflow: hidden;
 
     animation: sidebarSlideIn 0.5s;
 }
@@ -149,11 +153,10 @@ a:hover,
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
-    gap: 0.8rem;
+    gap: 0.7rem;
 
-    margin-bottom: -80px;
+    margin: auto 0;
 }
 
 .pageLabel {
@@ -169,7 +172,7 @@ a:hover,
 
 .separator {
     width: 0.8em;
-    height: 18px;
+    height: 12px;
 
     opacity: 0.5;
 }
@@ -180,22 +183,24 @@ a:hover,
 
 #funstuff {
     width: 60%;
-    min-height: 100px;
 
     position: absolute;
-    bottom: 0;
+
+    bottom: 25px;
+    left: 20%;
 
     display: flex;
-    align-self: flex-start;
     align-items: center;
 
     cursor: pointer;
+
+    z-index: 200;
 }
 
 #dmTooltip {
     font-size: x-small;
 
-    margin: 2em;
+    margin-left: 1.5rem;
 
     font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 
