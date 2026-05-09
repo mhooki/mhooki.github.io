@@ -280,11 +280,12 @@ a:hover,
 
     border: 2px solid var(--mainAccent);
 
-    background: rgba(58, 46, 57, 0.92);
+    background-color: rgba(255, 255, 255, 0.12);
 
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 
-    box-shadow: 0 0 15px rgba(230, 57, 99, 0.12);
+    box-shadow: 0 0 15px rgba(230, 57, 99, 0.08);
 }
 
 .sectionBox h3,
@@ -307,7 +308,7 @@ a:hover,
 
     color: var(--darkSubFG);
 
-    background: rgba(35, 20, 30, 0.75);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .imagePlaceholder {
@@ -363,9 +364,9 @@ a:hover,
 
     border: 3px solid var(--mainAccent);
 
-    background: rgba(58, 46, 57, 0.96);
+    background: rgba(255, 255, 255, 0.08);
 
-    box-shadow: 0 0 18px rgba(230, 57, 99, 0.1);
+    box-shadow: 0 0 18px rgba(230, 57, 99, 0.08);
 }
 
 .documentViewer iframe {
